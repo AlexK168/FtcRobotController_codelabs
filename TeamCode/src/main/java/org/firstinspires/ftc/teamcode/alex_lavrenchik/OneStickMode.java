@@ -1,17 +1,10 @@
 package org.firstinspires.ftc.teamcode.alex_lavrenchik;
 
-
-
-
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
-
-
-
 
 @TeleOp(name="Basic: Linear OpMode", group="Linear OpMode")
 
@@ -27,10 +20,8 @@ public class OneStickMode extends LinearOpMode {
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
-
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-
 
         leftDrive.setDirection(DcMotor.Direction.REVERSE);
         rightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -52,15 +43,15 @@ public class OneStickMode extends LinearOpMode {
             // POV Mode uses left stick to go forward, and right stick to turn.
             // - This uses basic math to combine motions and is easier to drive straight.
             double drive = gamepad1.right_stick_y;
-            double turn  =  gamepad1.right_stick_x;
+            double turn = gamepad1.right_stick_x;
 
-            leftPower    = Range.clip(drive + turn, -0.3, 0.3) ;
-            rightPower   = Range.clip(drive - turn, -0.3, 0.3) ;
+            leftPower = Range.clip(drive + turn, -0.3, 0.3);
+            rightPower = Range.clip(drive - turn, -0.3, 0.3);
 
             // Tank Mode uses one stick to control each wheel.
             // - This requires no math, but it is hard to drive forward slowly and keep straight.
-            // leftPower  = -gamepad1.left_stick_y ;
-            // rightPower = -gamepad1.right_stick_y ;
+            // leftPower = -gamepad1.left_stick_y;
+            // rightPower = -gamepad1.right_stick_y;
 
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
