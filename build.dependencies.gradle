@@ -4,6 +4,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.la4j:la4j:0.6.0'
+    implementation 'org.javatuples:javatuples:1.2'
     implementation 'org.firstinspires.ftc:Inspection:9.1.0'
     implementation 'org.firstinspires.ftc:Blocks:9.1.0'
     implementation 'org.firstinspires.ftc:Tfod:9.1.0'
